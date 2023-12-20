@@ -1,5 +1,6 @@
 package edu.alisson.sistemapdv.service.impl;
 
+import edu.alisson.sistemapdv.model.Categoria;
 import edu.alisson.sistemapdv.model.Produto;
 import edu.alisson.sistemapdv.repository.ProdutoRepository;
 import edu.alisson.sistemapdv.service.ProdutoService;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ProdutoServiceImpl implements ProdutoService {

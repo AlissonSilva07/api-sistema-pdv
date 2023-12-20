@@ -1,5 +1,6 @@
 package edu.alisson.sistemapdv.controller;
 
+import edu.alisson.sistemapdv.model.Categoria;
 import edu.alisson.sistemapdv.model.Produto;
 import edu.alisson.sistemapdv.repository.ProdutoRepository;
 import edu.alisson.sistemapdv.service.ProdutoService;
@@ -8,11 +9,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "*")
 @RequestMapping("/produtos")
 public class ProdutoController {
     @Autowired
@@ -28,6 +31,13 @@ public class ProdutoController {
     @GetMapping("/buscar/{id}")
     public ResponseEntity<Optional<Produto>> produtoPorId(@PathVariable("id") Integer idProduto) {
         return ResponseEntity.ok(produtoService.getById(idProduto));
+    }
+
+    @GetMapping("/categorias")
+    public ResponseEntity<List<String>> todasCategorias() {
+        Categoria categorias[] = Categoria.values();
+        List<String> categoria = Arrays.stream(categorias).map(cat -> {return cat.getDescricao();}).collect(Collectors.toList());
+        return ResponseEntity.ok(categoria);
     }
 
     @PostMapping("/postar")

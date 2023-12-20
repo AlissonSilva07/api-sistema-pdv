@@ -1,9 +1,6 @@
 package edu.alisson.sistemapdv.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
 import java.time.LocalDate;
 
@@ -15,6 +12,7 @@ public class Produto {
     @CreatedDate
     private LocalDate dataCriacao;
     private String nomeProduto;
+    @Enumerated(EnumType.STRING)
     private Categoria categoria;
     private String descricao;
     private float valUnitario;

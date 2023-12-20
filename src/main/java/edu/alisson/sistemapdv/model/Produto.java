@@ -10,8 +10,8 @@ import java.time.LocalDate;
 @Entity
 public class Produto {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String idProduto;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer idProduto;
     @CreatedDate
     private LocalDate dataCriacao;
     private String nomeProduto;
@@ -19,7 +19,7 @@ public class Produto {
     private String descricao;
     private float valUnitario;
 
-    public Produto(String idProduto, LocalDate dataCriacao, String nomeProduto, Categoria categoria, String descricao, float valUnitario) {
+    public Produto(Integer idProduto, LocalDate dataCriacao, String nomeProduto, Categoria categoria, String descricao, float valUnitario) {
         this.idProduto = idProduto;
         this.dataCriacao = dataCriacao;
         this.nomeProduto = nomeProduto;
@@ -30,11 +30,11 @@ public class Produto {
 
     public Produto() {}
 
-    public String getIdProduto() {
+    public Integer getIdProduto() {
         return idProduto;
     }
 
-    public void setIdProduto(String idProduto) {
+    public void setIdProduto(Integer idProduto) {
         this.idProduto = idProduto;
     }
 
@@ -54,8 +54,8 @@ public class Produto {
         this.nomeProduto = nomeProduto;
     }
 
-    public String getCategoria() {
-        return categoria.getDescricao();
+    public Categoria getCategoria() {
+        return categoria;
     }
 
     public void setCategoria(Categoria categoria) {

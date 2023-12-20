@@ -4,8 +4,10 @@ import edu.alisson.sistemapdv.model.Produto;
 import edu.alisson.sistemapdv.repository.ProdutoRepository;
 import edu.alisson.sistemapdv.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,7 +21,7 @@ public class ProdutoServiceImpl implements ProdutoService {
     }
 
     @Override
-    public Optional<Produto> getById(String idProduto) {
+    public Optional<Produto> getById(Integer idProduto) {
         return produtoRepository.findById(idProduto);
     }
 
@@ -29,19 +31,24 @@ public class ProdutoServiceImpl implements ProdutoService {
     }
 
     @Override
-    public void delete(String idProduto) {
-        var query = produtoRepository.findById(idProduto);
+    public void delete(Integer idProduto) {
+        Optional<Produto> query = produtoRepository.findById(idProduto);
         if (query.isPresent()) {
             produtoRepository.deleteById(idProduto);
         }
     }
 
     @Override
-    public Produto update(String idProduto, Produto produto) {
-        var query = produtoRepository.findById(idProduto);
-        if (!query.isPresent()) {
-            return null;
+    public void update(Integer idProduto, Produto produto) {
+        Optional<Produto> query = produtoRepository.findById(idProduto);
+        if (query.isPresent()) {
+            Produto prod = query.get();
+            prod.setNomeProduto(produto.getNomeProduto());
+            prod.setCategoria(produto.getCategoria());
+            prod.setDescricao(produto.getDescricao());
+            prod.setValUnitario(produto.getValUnitario());
+
+            produtoRepository.save(prod);
         }
-        return produtoRepository.save(produto);
     }
 }

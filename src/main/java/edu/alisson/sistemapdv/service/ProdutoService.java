@@ -7,8 +7,8 @@ import java.util.Optional;
 
 public interface ProdutoService {
     List<Produto> getAll();
-    Optional<Produto> getById(String idProduto);
+    Optional<Produto> getById(Integer idProduto);
     Produto save(Produto produto);
-    void delete(String idProduto);
-    Produto update(String idProduto, Produto produto);
+    void delete(Integer idProduto);
+    void update(Integer idProduto, Produto produto);
 }

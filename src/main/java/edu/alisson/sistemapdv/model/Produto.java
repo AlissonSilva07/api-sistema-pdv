@@ -1,23 +1,24 @@
 package edu.alisson.sistemapdv.model;
 
 import jakarta.persistence.*;
-import org.springframework.data.annotation.CreatedDate;
+
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer idProduto;
-    @CreatedDate
     private LocalDate dataCriacao;
     private String nomeProduto;
     @Enumerated(EnumType.STRING)
     private Categoria categoria;
     private String descricao;
-    private float valUnitario;
+    private BigDecimal valUnitario;
 
-    public Produto(Integer idProduto, LocalDate dataCriacao, String nomeProduto, Categoria categoria, String descricao, float valUnitario) {
+    public Produto(Integer idProduto, LocalDate dataCriacao, String nomeProduto, Categoria categoria, String descricao, BigDecimal valUnitario) {
         this.idProduto = idProduto;
         this.dataCriacao = dataCriacao;
         this.nomeProduto = nomeProduto;
@@ -36,8 +37,10 @@ public class Produto {
         this.idProduto = idProduto;
     }
 
-    public LocalDate getDataCriacao() {
-        return dataCriacao;
+    public String getDataCriacao() {
+        DateTimeFormatter br = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String dataFormatada = br.format(this.dataCriacao);
+        return dataFormatada;
     }
 
     public void setDataCriacao(LocalDate dataCriacao) {
@@ -68,11 +71,11 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public float getValUnitario() {
+    public BigDecimal getValUnitario() {
         return valUnitario;
     }
 
-    public void setValUnitario(float valUnitario) {
+    public void setValUnitario(BigDecimal valUnitario) {
         this.valUnitario = valUnitario;
     }
 }

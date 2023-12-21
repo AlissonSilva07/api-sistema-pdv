@@ -8,7 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -35,9 +38,7 @@ public class ProdutoController {
 
     @GetMapping("/categorias")
     public ResponseEntity<List<String>> todasCategorias() {
-        Categoria categorias[] = Categoria.values();
-        List<String> categoria = Arrays.stream(categorias).map(cat -> {return cat.getDescricao();}).collect(Collectors.toList());
-        return ResponseEntity.ok(categoria);
+        return ResponseEntity.ok(produtoService.getCategorias());
     }
 
     @PostMapping("/postar")

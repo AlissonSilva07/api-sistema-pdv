@@ -9,6 +9,7 @@ import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -25,6 +26,13 @@ public class ProdutoServiceImpl implements ProdutoService {
     @Override
     public Optional<Produto> getById(Integer idProduto) {
         return produtoRepository.findById(idProduto);
+    }
+
+    @Override
+    public List<String> getCategorias() {
+        Categoria categorias[] = Categoria.values();
+        List<String> categoria = Arrays.stream(categorias).map(cat -> {return cat.getDescricao();}).collect(Collectors.toList());
+        return categoria;
     }
 
     @Override

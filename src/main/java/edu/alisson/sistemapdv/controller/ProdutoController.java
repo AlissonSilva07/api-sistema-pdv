@@ -1,21 +1,14 @@
 package edu.alisson.sistemapdv.controller;
 
-import edu.alisson.sistemapdv.model.Categoria;
 import edu.alisson.sistemapdv.model.Produto;
-import edu.alisson.sistemapdv.repository.ProdutoRepository;
 import edu.alisson.sistemapdv.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -23,8 +16,6 @@ import java.util.stream.Collectors;
 public class ProdutoController {
     @Autowired
     private ProdutoService produtoService;
-    @Autowired
-    private ProdutoRepository produtoRepository;
 
     @GetMapping("/todos")
     public ResponseEntity<List<Produto>> todosProdutos() {

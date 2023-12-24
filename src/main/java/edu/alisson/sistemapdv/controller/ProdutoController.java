@@ -45,15 +45,9 @@ public class ProdutoController {
     }
 
     @PutMapping("/atualizar/{id}")
-    public ResponseEntity<String> atualizarProduto(@PathVariable("id") Integer idProduto, @RequestBody Produto produto) {
+    public ResponseEntity<Void> atualizarProduto(@PathVariable("id") Integer idProduto, @RequestBody Produto produto) {
         produtoService.update(idProduto, produto);
-        return ResponseEntity.ok("O produto de id " + idProduto +
-                " foi atualizado com as seguintes características:"
-                + " nome do produto: " + produto.getNomeProduto()
-                + ", categoria: " + produto.getCategoria()
-                + ", descrição: " + produto.getDescricao()
-                + ", valor unitário: " + produto.getValUnitario()
-        );
+        return ResponseEntity.ok().build();
     }
 
 }

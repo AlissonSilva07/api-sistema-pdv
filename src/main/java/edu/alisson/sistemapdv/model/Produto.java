@@ -17,14 +17,16 @@ public class Produto {
     private Categoria categoria;
     private String descricao;
     private BigDecimal valUnitario;
+    private boolean isChecked;
 
-    public Produto(Integer idProduto, LocalDate dataCriacao, String nomeProduto, Categoria categoria, String descricao, BigDecimal valUnitario) {
+    public Produto(Integer idProduto, LocalDate dataCriacao, String nomeProduto, Categoria categoria, String descricao, BigDecimal valUnitario, boolean isChecked) {
         this.idProduto = idProduto;
         this.dataCriacao = dataCriacao;
         this.nomeProduto = nomeProduto;
         this.categoria = categoria;
         this.descricao = descricao;
         this.valUnitario = valUnitario;
+        this.isChecked = isChecked;
     }
 
     public Produto() {}
@@ -77,5 +79,13 @@ public class Produto {
 
     public void setValUnitario(BigDecimal valUnitario) {
         this.valUnitario = valUnitario;
+    }
+
+    public boolean getIsChecked(){
+        return isChecked;
+    }
+
+    public void setIsChecked(boolean isChecked) {
+        this.isChecked = isChecked;
     }
 }

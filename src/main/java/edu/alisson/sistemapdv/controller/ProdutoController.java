@@ -39,8 +39,10 @@ public class ProdutoController {
     }
 
     @DeleteMapping("/deletar/{id}")
-    public ResponseEntity<Void> deletarProduto(@PathVariable("id") Integer idProduto) {
-        produtoService.delete(idProduto);
+    public ResponseEntity<Void> deletarProduto(@PathVariable("id") List<Integer> idsProdutos) {
+        for (Integer param : idsProdutos) {
+            produtoService.delete(param);
+        }
         return ResponseEntity.ok().build();
     }
 

@@ -1,8 +1,10 @@
 package edu.alisson.sistemapdv.controller;
 
 import edu.alisson.sistemapdv.model.Produto;
+import edu.alisson.sistemapdv.model.response.ResponseHandler;
 import edu.alisson.sistemapdv.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,8 +25,14 @@ public class ProdutoController {
     }
 
     @GetMapping("/buscar/{id}")
-    public ResponseEntity<Optional<Produto>> produtoPorId(@PathVariable("id") Integer idProduto) {
-        return ResponseEntity.ok(produtoService.getById(idProduto));
+    public ResponseEntity<Object> produtoPorId(@PathVariable("id") Integer idProduto) {
+        Optional<Produto> produto = produtoService.getById(idProduto);
+
+        if (produto.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("A busca não retornou nenhum usuário.");
+        } else {
+            return ResponseEntity.ok(produto);
+        }
     }
 
     @GetMapping("/categorias")

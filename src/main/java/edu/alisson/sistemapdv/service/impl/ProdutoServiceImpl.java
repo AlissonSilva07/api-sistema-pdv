@@ -5,6 +5,7 @@ import edu.alisson.sistemapdv.model.Produto;
 import edu.alisson.sistemapdv.repository.ProdutoRepository;
 import edu.alisson.sistemapdv.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -18,7 +19,7 @@ public class ProdutoServiceImpl implements ProdutoService {
     private ProdutoRepository produtoRepository;
     @Override
     public List<Produto> getAll() {
-        return produtoRepository.findAll();
+        return produtoRepository.findAll(Sort.by(Sort.Direction.ASC, "idProduto"));
     }
 
     @Override

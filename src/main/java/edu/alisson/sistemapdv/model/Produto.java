@@ -2,7 +2,6 @@ package edu.alisson.sistemapdv.model;
 
 import jakarta.persistence.*;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -16,10 +15,10 @@ public class Produto {
     @Enumerated(EnumType.STRING)
     private Categoria categoria;
     private String descricao;
-    private BigDecimal valUnitario;
+    private double valUnitario;
     private boolean isChecked;
 
-    public Produto(Integer idProduto, LocalDate dataCriacao, String nomeProduto, Categoria categoria, String descricao, BigDecimal valUnitario, boolean isChecked) {
+    public Produto(Integer idProduto, LocalDate dataCriacao, String nomeProduto, Categoria categoria, String descricao, double valUnitario, boolean isChecked) {
         this.idProduto = idProduto;
         this.dataCriacao = dataCriacao;
         this.nomeProduto = nomeProduto;
@@ -73,11 +72,11 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public BigDecimal getValUnitario() {
+    public double getValUnitario() {
         return valUnitario;
     }
 
-    public void setValUnitario(BigDecimal valUnitario) {
+    public void setValUnitario(double valUnitario) {
         this.valUnitario = valUnitario;
     }
 

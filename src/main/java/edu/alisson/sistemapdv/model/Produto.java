@@ -2,6 +2,7 @@ package edu.alisson.sistemapdv.model;
 
 import jakarta.persistence.*;
 
+import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -75,6 +76,8 @@ public class Produto {
     public double getValUnitario() {
         return valUnitario;
     }
+
+    
 
     public void setValUnitario(double valUnitario) {
         this.valUnitario = valUnitario;

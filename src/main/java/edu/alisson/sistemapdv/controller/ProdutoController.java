@@ -29,7 +29,7 @@ public class ProdutoController {
         Optional<Produto> produto = produtoService.getById(idProduto);
 
         if (produto.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("A busca por código não retornou nenhum produto, tente novamente.");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("A busca por código não retornou nenhum produto com o id " + idProduto + ", tente novamente.");
         } else {
             return ResponseEntity.ok(produto);
         }

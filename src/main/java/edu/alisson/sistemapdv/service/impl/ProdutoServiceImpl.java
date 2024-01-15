@@ -1,7 +1,7 @@
 package edu.alisson.sistemapdv.service.impl;
 
-import edu.alisson.sistemapdv.model.Categoria;
-import edu.alisson.sistemapdv.model.Produto;
+import edu.alisson.sistemapdv.domain.categoria.Categoria;
+import edu.alisson.sistemapdv.domain.produto.Produto;
 import edu.alisson.sistemapdv.repository.ProdutoRepository;
 import edu.alisson.sistemapdv.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;

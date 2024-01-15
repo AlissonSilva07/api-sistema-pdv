@@ -1,8 +1,8 @@
-package edu.alisson.sistemapdv.model;
+package edu.alisson.sistemapdv.domain.produto;
 
+import edu.alisson.sistemapdv.domain.categoria.Categoria;
 import jakarta.persistence.*;
 
-import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 

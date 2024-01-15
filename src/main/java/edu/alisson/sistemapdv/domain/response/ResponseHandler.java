@@ -1,4 +1,4 @@
-package edu.alisson.sistemapdv.model.response;
+package edu.alisson.sistemapdv.domain.response;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

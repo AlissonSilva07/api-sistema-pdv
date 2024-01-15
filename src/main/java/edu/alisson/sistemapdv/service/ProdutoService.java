@@ -1,6 +1,6 @@
 package edu.alisson.sistemapdv.service;
 
-import edu.alisson.sistemapdv.model.Produto;
+import edu.alisson.sistemapdv.domain.produto.Produto;
 
 import java.util.List;
 import java.util.Optional;

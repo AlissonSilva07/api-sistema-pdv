@@ -1,4 +1,4 @@
-package edu.alisson.sistemapdv.model;
+package edu.alisson.sistemapdv.domain.categoria;
 
 public enum Categoria {
     Padaria("Padaria"), Carnes("Carnes"), Mercearia("Mercearia"), Matinais("Matinais"), Frios("Frios"), Laticínios("Laticínios"), Bebidas("Bebidas"), Limpeza("Limpeza"), Higiene("Higiene"), Hortifruti("Hortifruti"), PetShop("PetShop");

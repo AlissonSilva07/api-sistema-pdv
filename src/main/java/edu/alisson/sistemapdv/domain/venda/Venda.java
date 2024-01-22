@@ -19,6 +19,8 @@ public class Venda {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String idVenda;
     private String dataCriacao;
+    private String nomeCliente;
+    private String telefone;
     private double valorTotal;
     private double troco;
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

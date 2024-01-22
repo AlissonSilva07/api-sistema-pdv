@@ -22,7 +22,7 @@ public class VendaController {
     }
 
     @PostMapping("/postar")
-    public ResponseEntity<Venda> postarProduto(@RequestBody Venda venda) {
+    public ResponseEntity<Venda> postarVenda(@RequestBody Venda venda) {
         return ResponseEntity.ok(vendaService.save(venda));
     }
 }

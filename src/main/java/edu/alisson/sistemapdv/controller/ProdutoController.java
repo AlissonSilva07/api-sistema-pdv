@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,7 +43,7 @@ public class ProdutoController {
 
     @PostMapping("/postar")
     public ResponseEntity<Produto> postarProduto(@RequestBody Produto produto) {
-        produto.setDataCriacao(LocalDate.now());
+        produto.setDataCriacao(LocalDateTime.now(ZoneId.of("America/Sao_Paulo")));
         return ResponseEntity.ok(produtoService.save(produto));
     }
 

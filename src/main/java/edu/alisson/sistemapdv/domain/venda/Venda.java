@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @NoArgsConstructor
@@ -18,7 +19,7 @@ public class Venda {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String idVenda;
-    private String dataCriacao;
+    private LocalDateTime dataCriacao;
     private String nomeCliente;
     private String telefone;
     private double valorTotal;

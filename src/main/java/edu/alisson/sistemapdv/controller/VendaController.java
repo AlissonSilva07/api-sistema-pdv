@@ -1,13 +1,13 @@
 package edu.alisson.sistemapdv.controller;
 
-import edu.alisson.sistemapdv.domain.produto.Produto;
 import edu.alisson.sistemapdv.domain.venda.Venda;
 import edu.alisson.sistemapdv.service.VendaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
 
 @RestController
@@ -23,6 +23,7 @@ public class VendaController {
 
     @PostMapping("/postar")
     public ResponseEntity<Venda> postarVenda(@RequestBody Venda venda) {
+        venda.setDataCriacao(LocalDateTime.now(ZoneId.of("America/Sao_Paulo")));
         return ResponseEntity.ok(vendaService.save(venda));
     }
 }

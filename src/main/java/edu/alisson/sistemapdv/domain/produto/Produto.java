@@ -7,8 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,7 +18,7 @@ public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer idProduto;
-    private LocalDate dataCriacao;
+    private LocalDateTime dataCriacao;
     private String nomeProduto;
     @Enumerated(EnumType.STRING)
     private Categoria categoria;

@@ -4,6 +4,7 @@ import edu.alisson.sistemapdv.domain.venda.Venda;
 import edu.alisson.sistemapdv.repository.VendaRepository;
 import edu.alisson.sistemapdv.service.VendaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public class VendaServiceImpl implements VendaService {
     private VendaRepository vendaRepository;
     @Override
     public List<Venda> getAll() {
-        return vendaRepository.findAll();
+        return vendaRepository.findAll(Sort.by(Sort.Direction.DESC, "dataCriacao"));
     }
 
     @Override
